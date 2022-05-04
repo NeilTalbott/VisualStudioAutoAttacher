@@ -49,5 +49,16 @@
             var dte2 = (DTE2)Marshal.GetActiveObject("VisualStudio.DTE.16.0");
             return dte2;
         }
+
+        private static void AttachDebugger(DTE2 dte, string processName)
+        {
+            var processes = dte.Debugger.LocalProcesses;
+
+            // Note: Consider using an exact match instead of using .IndexOf()
+            foreach (var proc in processes.Cast<EnvDTE.Process>().Where(proc => proc.Name.IndexOf(processName) != -1))
+            {
+                proc.Attach();
+            }
+        }
     }
 }
