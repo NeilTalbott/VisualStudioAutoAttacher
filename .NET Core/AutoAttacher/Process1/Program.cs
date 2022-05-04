@@ -55,7 +55,7 @@
 
         private static DTE2 GetCurrentVisualStudioInstance()
         {
-            var dte2 = (DTE2)Marshal.GetActiveObject(VisualStudioVersion);
+            var dte2 = (DTE2)Marshal2.GetActiveObject(VisualStudioVersion);
 
             // Note: this demo requires exactly one instance of Visual Studio to be open.
             // If you need to identify one amongst several instances, some options are described here:
