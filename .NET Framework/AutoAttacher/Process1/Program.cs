@@ -10,6 +10,9 @@
 
     class Program
     {
+        // Note: "16.0" is for Visual Studio 2019. This value need to be edited for other versions.
+        private const string VisualStudioVersion = "VisualStudio.DTE.16.0";
+
         private const string Process2Name = "Process2";
 
         static void Main(string[] args)
@@ -54,8 +57,7 @@
 
         private static DTE2 GetCurrentVisualStudioInstance()
         {
-            // Note: "16.0" is for Visual Studio 2019.
-            var dte2 = (DTE2)Marshal.GetActiveObject("VisualStudio.DTE.16.0");
+            var dte2 = (DTE2)Marshal.GetActiveObject(VisualStudioVersion);
 
             // Note: this demo requires exactly one instance of Visual Studio to be open.
             // If you need to identify one amongst several instances, some options are described here:
