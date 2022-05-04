@@ -5,4 +5,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="envdte" Version="17.1.32210.191" />
+    <PackageReference Include="envdte80" Version="17.1.32210.191" />
+  </ItemGroup>
+
 </Project>
