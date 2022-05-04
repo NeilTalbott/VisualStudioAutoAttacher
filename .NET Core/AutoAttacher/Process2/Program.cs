@@ -1,12 +1,15 @@
-﻿using System;
-
-namespace Process2
+﻿namespace Process2
 {
+    using System.Threading;
+
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            while (true)
+            {
+                Thread.Sleep(500);
+            }
         }
     }
 }
