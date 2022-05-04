@@ -5,6 +5,12 @@ The solutions in this repository illustrate how to attach the Visual Studio debu
 
 Examples are provided for .NET Framework (v4.7.2) and .NET Core (v5.0). Changes required for similar or subsequent .NET versions should be minimal.
 
+This repository was inspired by the StackOverflow question at the following link:
+
+https://stackoverflow.com/questions/72022151/can-i-programmatically-attach-a-running-net-6-process-to-a-running-instance-of/72075450?noredirect=1#comment127405081_72075450
+
+If this code helps you, please consider upvoting both the question and answer so that it becomes easier to find for other developers with a similar problem.
+
 USAGE INSTRUCTIONS
 ==================
 
