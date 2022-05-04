@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Process1
+﻿namespace Process1
 {
+    using System;
     using System.Diagnostics;
     using System.IO;
-    using System.Reflection;
-    using System.Threading;
+    using System.Linq;
+    using System.Runtime.InteropServices;
+    
+    using EnvDTE80;
 
     class Program
     {
@@ -44,6 +41,13 @@ namespace Process1
             {
                 process2.Kill();
             }
+        }
+
+        private static DTE2 GetCurrentVisualStudioInstance()
+        {
+            // Note: "16.0" is for Visual Studio 2019.
+            var dte2 = (DTE2)Marshal.GetActiveObject("VisualStudio.DTE.16.0");
+            return dte2;
         }
     }
 }
