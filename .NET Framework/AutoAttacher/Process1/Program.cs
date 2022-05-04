@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Process1
 {
+    using System.Diagnostics;
     using System.IO;
     using System.Reflection;
 
@@ -23,7 +24,20 @@ namespace Process1
 
             if (!File.Exists(process2Executable))
             {
-                throw new ApplicationException("Executable file for Process 2 not found");
+                throw new ApplicationException("Executable file for Process2 not found");
+            }
+
+            var process2Info = new ProcessStartInfo(process2Executable);
+            var process2 = Process.Start(process2Info);
+
+            Console.WriteLine("Process2 is now running. Press any key to attach");
+            Console.ReadKey();
+
+            // ToDo: Attach.
+
+            if (!process2.HasExited)
+            {
+                process2.Kill();
             }
         }
     }
