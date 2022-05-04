@@ -48,6 +48,10 @@
         {
             // Note: "16.0" is for Visual Studio 2019.
             var dte2 = (DTE2)Marshal.GetActiveObject("VisualStudio.DTE.16.0");
+
+            // Note: this demo requires exactly one instance of Visual Studio to be open.
+            // If you need to identify one amongst several instances, some options are described here:
+            // https://stackoverflow.com/questions/13432057/how-to-use-marshal-getactiveobject-to-get-2-instance-of-of-a-running-process-t
             return dte2;
         }
 
