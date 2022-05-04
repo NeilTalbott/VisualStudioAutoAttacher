@@ -1,0 +1,5 @@
+﻿*.suo
+.NET Framework/AutoAttacher/Process1/obj
+.NET Framework/AutoAttacher/Process1/bin
+.NET Framework/AutoAttacher/Process2/obj
+.NET Framework/AutoAttacher/Process2/bin
