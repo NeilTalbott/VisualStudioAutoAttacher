@@ -10,6 +10,9 @@
     {
         // Note: "16.0" is for Visual Studio 2019. This value need to be edited for other versions.
         private const string VisualStudioVersion = "VisualStudio.DTE.16.0";
+        
+        // Note: "net5.0" is for .NET Core 5. Subfolder name will need to be amended for other versions.
+        private const string DebugSubFolder = "net5.0";
 
         private const string Process2Name = "Process2";
 
@@ -38,8 +41,8 @@
         private static Process InitialiseProcess2()
         {
             var currentFolder = AppDomain.CurrentDomain.RelativeSearchPath ?? AppDomain.CurrentDomain.BaseDirectory;
-            var solutionFolder = new DirectoryInfo(currentFolder).Parent.Parent.Parent;
-            var process2Folder = Path.Combine(solutionFolder.FullName, Process2Name, "bin", "Debug");
+            var solutionFolder = new DirectoryInfo(currentFolder).Parent.Parent.Parent.Parent;
+            var process2Folder = Path.Combine(solutionFolder.FullName, Process2Name, "bin", "Debug", DebugSubFolder);
 
             var process2Executable = Path.Combine(process2Folder, $"{Process2Name}.exe");
 
