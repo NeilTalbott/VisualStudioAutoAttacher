@@ -14,17 +14,19 @@ If this code helps you, please consider upvoting both the question and answer so
 USAGE INSTRUCTIONS
 ==================
 
-1. Open Visual Studio and load the solution for your desired .NET flavour (Framework or Core).
+1. Ensure you have exactly one instance of Visual Studio running. (See comments in code for further details.)
 
-2. Ensure that Process1 is set as the (single) startup project.
+2. In Visual Studio, load the solution for your desired .NET flavour (Framework or Core).
 
-3. Open Process1\Program.cs. Modify the following class constants:
+3. Ensure that Process1 is set as the (single) startup project.
 
-- Visual Studio version. This is set for VS2019 (16.0) by default.
-- Output subfolder (.NET Core only). This is "net5.0" by default.
+4. Open Process1\Program.cs. Modify the following class constants:
 
-4. Place a breakpoint within the 'while' loop in Process2\Program.cs.
+    - Visual Studio version. This is set for VS2019 (16.0) by default.
+    - Output subfolder (.NET Core only). This is "net5.0" by default.
 
-5. Run the solution and follow on-screen instructions. Pressing any key (when prompted) in the Process1 console window should cause the breakpoint in Process2 to be hit.
+5. Place a breakpoint within the 'while' loop in Process2\Program.cs.
+
+6. Run the solution and follow on-screen instructions. Pressing any key (when prompted) in the Process1 console window should cause the breakpoint in Process2 to be hit.
 
 <end>
