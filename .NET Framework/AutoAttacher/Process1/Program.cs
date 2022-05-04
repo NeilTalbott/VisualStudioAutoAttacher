@@ -9,6 +9,7 @@ namespace Process1
     using System.Diagnostics;
     using System.IO;
     using System.Reflection;
+    using System.Threading;
 
     class Program
     {
@@ -30,10 +31,14 @@ namespace Process1
             var process2Info = new ProcessStartInfo(process2Executable);
             var process2 = Process.Start(process2Info);
 
-            Console.WriteLine("Process2 is now running. Press any key to attach");
+            Console.WriteLine("Process2 is now running. Press any key to attach:");
             Console.ReadKey();
 
             // ToDo: Attach.
+
+            Console.WriteLine();
+            Console.WriteLine("Press any key to kill Process2 and exit:");
+            Console.ReadKey();
 
             if (!process2.HasExited)
             {
