@@ -31,7 +31,8 @@
             Console.WriteLine("Process2 is now running. Press any key to attach:");
             Console.ReadKey();
 
-            // ToDo: Attach.
+            var thisVisualStudio = GetCurrentVisualStudioInstance();
+            AttachDebugger(thisVisualStudio, Process2Name);
 
             Console.WriteLine();
             Console.WriteLine("Press any key to kill Process2 and exit:");
