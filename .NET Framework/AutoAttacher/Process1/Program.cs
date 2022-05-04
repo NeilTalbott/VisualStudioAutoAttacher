@@ -14,19 +14,9 @@
 
         static void Main(string[] args)
         {
-            var currentFolder = AppDomain.CurrentDomain.RelativeSearchPath ?? AppDomain.CurrentDomain.BaseDirectory;
-            var solutionFolder = new DirectoryInfo(currentFolder).Parent.Parent.Parent;
-            var process2Folder = Path.Combine(solutionFolder.FullName, Process2Name, "bin", "Debug");
-
-            var process2Executable = Path.Combine(process2Folder, $"{Process2Name}.exe");
-
-            if (!File.Exists(process2Executable))
-            {
-                throw new ApplicationException("Executable file for Process2 not found");
-            }
-
-            var process2Info = new ProcessStartInfo(process2Executable);
-            var process2 = Process.Start(process2Info);
+            // Note: This code assumes no instances of Process2 are running at startup.
+            //  Since Process2 is started programmatically, it will not terminate if 'Stop' is pressed in Visual Studio.
+            var process2 = InitialiseProcess2();
 
             Console.WriteLine("Process2 is now running. Press any key to attach:");
             Console.ReadKey();
@@ -42,6 +32,24 @@
             {
                 process2.Kill();
             }
+        }
+
+        private static Process InitialiseProcess2()
+        {
+            var currentFolder = AppDomain.CurrentDomain.RelativeSearchPath ?? AppDomain.CurrentDomain.BaseDirectory;
+            var solutionFolder = new DirectoryInfo(currentFolder).Parent.Parent.Parent;
+            var process2Folder = Path.Combine(solutionFolder.FullName, Process2Name, "bin", "Debug");
+
+            var process2Executable = Path.Combine(process2Folder, $"{Process2Name}.exe");
+
+            if (!File.Exists(process2Executable))
+            {
+                throw new ApplicationException("Executable file for Process2 not found");
+            }
+
+            var process2Info = new ProcessStartInfo(process2Executable);
+            var process2 = Process.Start(process2Info);
+            return process2;
         }
 
         private static DTE2 GetCurrentVisualStudioInstance()
